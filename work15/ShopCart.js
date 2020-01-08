@@ -1,8 +1,8 @@
 (function(window) {
     /**
      * ShopCArt 购物车
-     * @param {String} prefix 前缀
-     * @param {Array} defCart 初始数据[{name: '', price: 1, num: 1}]
+     * @param {String} prefix   前缀
+     * @param {Array} defCart   初始数据[{name: '', price: 1, num: 1}]
      */
     let ShopCArt = function(prefix, defCart) {
         Find.prototype.prefix = prefix;
@@ -13,9 +13,9 @@
         cart.updateTotal();
     };
     /**
-     * Cart 购物车管理
+     * Cart    购物车管理
      * @constructor
-     * @param {Object} obj 购物车容器对象
+     * @param {Object} obj    购物车容器对象
      */
     function Cart(obj) {
         this.items = [];
@@ -40,8 +40,8 @@
          * 向购物车添加商品
          * @param {Object} data 商品信息
          */
-        add: function(data) {
-            let tmp = this.tmp.cloneNode(true);
+        add:  function(data) {
+            let tmp =  this.tmp.cloneNode(true);
             let item = new Item(tmp, data);
             let cart = this;
             //勾选
@@ -102,8 +102,8 @@
                     price += item.data.num * item.data.price;
                 }
             }
-            this.num.textContent = num;
-            this.price.textContent = price.toFixed(2);
+            this.num.textContent =  num;
+            this.price.textContent =  price.toFixed(2);
         },
         /**
          * 全选
@@ -115,14 +115,14 @@
             this.updateTotal();
         },
         /**
-         * 全不选
-         */
-        uncheckAll:function(){
-            for (let i in this.items) {
-                this.items[i].check.checked = false;
-            }
-            this.updateTotal();
+     * 全不选
+     */
+    uncheckAll:function(){
+        for(let i in this.items){
+            this.items[i].check.checked = false;
         }
+        this.updateTotal();
+    }
         };
         /**
          * Item 购物车中的单件商品
